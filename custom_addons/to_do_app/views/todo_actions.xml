@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="action_tickets_all" model="ir.actions.act_window">
+            <field name="name">All Tickets</field>
+            <field name="res_model">todo_app.ticket</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <record id="action_tickets_my" model="ir.actions.act_window">
+            <field name="name">My Tickets</field>
+            <field name="res_model">todo_app.ticket</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('assign_to', '=', uid)]</field>
+        </record>
+    </data>
+</odoo>
