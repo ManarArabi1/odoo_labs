@@ -27,7 +27,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_hms_department_root" name="HMS"/>
-        <menuitem id="menu_hms_department" name="Departments" parent="menu_hms_department_root" action="action_hms_department"/>
+        <menuitem id="menu_hms" name="HMS"/>
+        <menuitem id="menu_hms_department" name="Departments" parent="menu_hms" action="action_hms_department"/>
     </data>
 </odoo>
