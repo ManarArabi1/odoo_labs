@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="patient_report_action" model="ir.actions.report">
+            <field name="name">Patient Report</field>
+            <field name="model">hms.patients</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hms_lab4.patient_print_template</field>
+            <field name="report_file">hms_lab4.patient_print_template</field>
+            <field name="print_report_name">_("Patient Report - %(object_name)s")</field>
+            <field name="binding_model_id" ref="model_hms_patients"/>
+            <field name="binding_type">report</field>
+        </record>
+
+<template id="patient_print_template">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <h2>Patient Information</h2>
+                            <table style="margin: 0 auto; border-collapse: collapse; width: 50%;">
+                                <tr>
+                                    <td><strong>Age:</strong></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.age"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Department:</strong></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.department_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Birth Date:</strong></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.birth_date"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PCR:</strong></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.pcr"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.email"/></td>
+                                </tr>
+                            </table>
+
+                            <h2 style="margin-top: 20px;">User Data Info</h2>
+                            <table style="margin: 0 auto; border-collapse: collapse; width: 50%;">
+                                <tr style="background-color: #f0f0f0;">
+                                    <th style="border: 1px solid #ddd; padding: 8px;">User</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px;">Data</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px;">Info</th>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.name"/></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.email"/></td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;"><t t-esc="o.email"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+
+
+    </data>
+</odoo>

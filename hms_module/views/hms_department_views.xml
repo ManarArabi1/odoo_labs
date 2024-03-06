@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hms_department_form" model="ir.ui.view">
+            <field name="name">hms.department.form</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <form string="Hospital Department">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity"/>
+                            <field name="is_opened"/>
+<!--                            <field name="patient_ids"/>-->
+                            <field name="doctor_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_hms_departments" model="ir.actions.act_window">
+            <field name="name">HMS Departments</field>
+            <field name="res_model">hms.department</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create a new department</p>
+            </field>
+        </record>
+
+        <menuitem id="menu_hms" name="HMS"/>
+        <menuitem id="menu_hms_department" name="Departments" parent="menu_hms" action="action_view_hms_departments"/>
+
+    </data>
+</odoo>
